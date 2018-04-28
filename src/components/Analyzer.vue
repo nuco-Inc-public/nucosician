@@ -1,23 +1,36 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="analyzer">
+    <h1>音響認識テスト画面</h1>
+    <button v-on:click="start">start</button>
+    <button v-on:click="stop">stop</button>
+    <canvas id="canvas" width="500" height="500"></canvas>
   </div>
 </template>
 
 <script>
-import { Analyzer } from '../models/music/analyzer'
+import { Analyser } from '../models/music/analyzer'
+let analyser = null
+
+const start = () => {
+  analyser = new Analyser()
+  analyser.setCanvas(document.getElementById('canvas'))
+  analyser.start()
+}
+
+const stop = () => {
+  analyser.stop()
+}
 
 export default {
   name: 'Analyzer',
-  data () {
-    return {
-      msg: analyze()
-    }
+  // data () {
+  //   return {
+  //   }
+  // },
+  methods: {
+    start: start,
+    stop: stop
   }
-}
-
-function analyze () {
-  return new Analyzer().run()
 }
 </script>
 

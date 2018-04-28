@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <headerItem></headerItem>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import headerItem from './components/HeaderItem'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components : {
+    headerItem
+  }
 }
 </script>
 

@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { Analyzer } from '../models/music/analyzer'
+
 export default {
   name: 'MainPage',
   data () {
