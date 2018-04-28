@@ -1,16 +1,40 @@
 <template>
-  <router-link to="/test">
-    音響認識テストモード
-  </router-link>
+  <div>
+    <router-link to="/test">
+      音響認識テストモード
+    </router-link>
+    <div>
+    <router-link to="/score">
+      スコアー
+    </router-link>
+    </div>
+    <div class="collection">
+      <a class="collection-item">楽曲一覧</a>
+      <div v-for="(item, index) in lists" :key="index">
+        <a href="#!" v-on:click="value" class="collection-item">{{ item.fruit }}</a>
+      </div>
+    </div>
+    <h2 v-show="showText">{{ text }}</h2>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'MainPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      lists: [
+        {fruit: 'りんご'},
+        {fruit: 'バナナ'},
+        {fruit: '西瓜'}
+      ],
+      text: 'Fruit',
+      showText: false
     }
+  },
+  methods: {
+    value: function () { this.showText = !this.showText }
   }
 }
 </script>
@@ -30,5 +54,9 @@ li {
 }
 a {
   color: #42b983;
+}
+.collection {
+  margin-left: 300px;
+  margin-right: 300px;
 }
 </style>
