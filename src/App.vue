@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>hogehoge</h1>
     <router-view/>
   </div>
 </template>
