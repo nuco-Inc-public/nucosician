@@ -1,23 +1,33 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="analyzer">
+    <h1>音響認識テスト画面</h1>
+    <button v-on:click="start">start</button>
+    <button v-on:click="stop">stop</button>
   </div>
 </template>
 
 <script>
 import { Analyzer } from '../models/music/analyzer'
+var analyzer = new Analyzer()
+
+const start = () => {
+  analyzer.start()
+}
+
+const stop = () => {
+  analyzer.stop()
+}
 
 export default {
   name: 'Analyzer',
-  data () {
-    return {
-      msg: analyze()
-    }
+  // data () {
+  //   return {
+  //   }
+  // },
+  methods: {
+    start: start,
+    stop: stop
   }
-}
-
-function analyze () {
-  return new Analyzer().run()
 }
 </script>
 
