@@ -1,12 +1,16 @@
 <template>
-  <router-link to="/test">
-    音響認識テストモード
-  </router-link>
+  <div>
+    <router-link to="/test">
+      音響認識テストモード
+    </router-link>
+  </div>
 </template>
 
 <script>
+import { Analyzer } from '../models/music/analyzer'
+
 export default {
-  name: 'HelloWorld',
+  name: 'MainPage',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
