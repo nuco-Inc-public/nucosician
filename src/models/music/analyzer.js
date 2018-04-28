@@ -53,7 +53,6 @@ class Analyser {
     }
     this.audioData.push(bufferData)
 
-    // 波形を解析
     this.drawCanvas()
   }
 
@@ -71,7 +70,6 @@ class Analyser {
     this.canvasContext.beginPath()
 
     for (let i = 0, len = spectrums.length; i < len; i++) {
-      // canvasにおさまるように線を描画
       let x = (i / len) * this.canvas.width
       let y = (1 - (spectrums[i] / 255)) * this.canvas.height
       if (i === 0) {
@@ -79,28 +77,22 @@ class Analyser {
       } else {
         this.canvasContext.lineTo(x, y)
       }
-      let f = Math.floor(i * fsDivN) // index -> frequency;
+      let f = Math.floor(i * fsDivN)
 
-      // 500 Hz単位にy軸の線とラベル出力
       if ((f % 500) === 0) {
         let text = (f < 1000) ? (f + ' Hz') : ((f / 1000) + ' kHz')
-        // Draw grid (X)
         this.canvasContext.fillRect(x, 0, 1, this.canvas.height)
-        // Draw text (X)
         this.canvasContext.fillText(text, x, this.canvas.height)
       }
     }
 
     this.canvasContext.stroke()
 
-    // x軸の線とラベル出力
     let textYs = ['1.00', '0.50', '0.00']
     for (let i = 0, len = textYs.length; i < len; i++) {
       let text = textYs[i]
       let gy = (1 - parseFloat(text)) * this.canvas.height
-      // Draw grid (Y)
       this.canvasContext.fillRect(0, gy, this.canvas.width, 1)
-      // Draw text (Y)
       this.canvasContext.fillText(text, 0, gy)
     }
   }
