@@ -25,11 +25,15 @@ class Analyser {
     if (this.processor) {
       this.processor.disconnect()
     }
+    if (this.audioAnalyser) {
+      this.audioAnalyser.disconnect()
+    }
   }
 
   setCanvas (canvas) {
     this.canvas = canvas
     this.canvasContext = this.canvas.getContext('2d')
+    this.canvasContext.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
 
   handleSuccess (stream) {
@@ -48,7 +52,7 @@ class Analyser {
   onAudioProcess (e) {
     let input = e.inputBuffer.getChannelData(0)
     let bufferData = new Float32Array(bufferSize)
-    for (var i = 0; i < bufferSize; i++) {
+    for (let i = 0; i < bufferSize; i++) {
       bufferData[i] = input[i]
     }
     this.audioData.push(bufferData)

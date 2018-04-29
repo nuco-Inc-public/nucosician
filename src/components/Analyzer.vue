@@ -1,9 +1,9 @@
 <template>
   <div class="analyzer">
-    <h1>音響認識テスト画面</h1>
-    <button v-on:click="start">start</button>
-    <button v-on:click="stop">stop</button>
+    <h3>音響認識テスト画面</h3>
     <canvas id="canvas" width="500" height="500"></canvas>
+    <button class="waves-effect waves-light btn" v-on:click="start">start</button>
+    <button class="waves-effect waves-light btn" v-on:click="stop">stop</button>
   </div>
 </template>
 
@@ -38,5 +38,14 @@ export default {
 <style scoped>
 h1, h2 {
   font-weight: normal;
+}
+
+canvas {
+  display: block;
+  margin: 0% auto;
+}
+
+button {
+  margin-top: 20px;
 }
 </style>
