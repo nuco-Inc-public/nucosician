@@ -1,8 +1,5 @@
 <template>
   <div>
-    <router-link to="/test">
-      音響認識テストモード
-    </router-link>
     <div>
     <router-link to="/score">
       スコアー

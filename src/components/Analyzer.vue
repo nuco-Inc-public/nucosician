@@ -23,10 +23,6 @@ const stop = () => {
 
 export default {
   name: 'Analyzer',
-  // data () {
-  //   return {
-  //   }
-  // },
   methods: {
     start: start,
     stop: stop

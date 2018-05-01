@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <headerItem></headerItem>
-    <router-view></router-view>
+    <header id="header">
+      <headerItem/>
+    </header>
+    <main>
+      <router-view/>
+    </main>
+    <footer>
+      <footerItem/>
+    </footer>
   </div>
 </template>
 
 <script>
 import headerItem from './components/HeaderItem'
+import footerItem from './components/FooterItem'
 
 export default {
   name: 'App',
   components: {
-    headerItem
+    headerItem,
+    footerItem
   }
 }
 </script>
@@ -23,5 +32,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+main {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 </style>
