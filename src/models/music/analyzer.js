@@ -1,12 +1,11 @@
 
-const bufferSize = 1024
+const bufferSize = 2048
 
 class Analyser {
   constructor () {
     this.context = new AudioContext()
     this.audioAnalyser = this.context.createAnalyser()
     this.audioAnalyser.fftSize = 2048
-    this.audioData = []
     // initialize by null
     this.frequencyData = null
     this.timeDomainData = null
@@ -55,8 +54,6 @@ class Analyser {
     for (let i = 0; i < bufferSize; i++) {
       bufferData[i] = input[i]
     }
-    this.audioData.push(bufferData)
-
     this.drawCanvas()
   }
 
@@ -73,7 +70,9 @@ class Analyser {
 
     this.canvasContext.beginPath()
 
-    for (let i = 0, len = spectrums.length; i < len; i++) {
+    let len = Math.floor(5000 / fsDivN)
+
+    for (let i = 0; i < len; i++) {
       let x = (i / len) * this.canvas.width
       let y = (1 - (spectrums[i] / 255)) * this.canvas.height
       if (i === 0) {
@@ -82,7 +81,6 @@ class Analyser {
         this.canvasContext.lineTo(x, y)
       }
       let f = Math.floor(i * fsDivN)
-
       if ((f % 500) === 0) {
         let text = (f < 1000) ? (f + ' Hz') : ((f / 1000) + ' kHz')
         this.canvasContext.fillRect(x, 0, 1, this.canvas.height)
