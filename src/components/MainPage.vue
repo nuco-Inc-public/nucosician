@@ -65,5 +65,10 @@ a {
 .material-icons {
   display: block;
   color: #ee6e73;
+  height: 50%;
+}
+.card-image {
+  margin-top: 2%;
+  margin-left: 2%;
 }
 </style>
