@@ -53,7 +53,6 @@ a {
   color: #42b983;
 }
 .collection {
-  margin-left: 300px;
-  margin-right: 300px;
+  margin:0 15%
 }
 </style>
