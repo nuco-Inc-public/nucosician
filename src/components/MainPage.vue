@@ -24,16 +24,13 @@
 </template>
 
 <script>
+import Musicinfo from '../assets/music_list.json';
 export default {
   name: 'MainPage',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      lists: [
-        {title: 'DATABASE', artist: 'まんうぃず'},
-        {title: 'Freak it! feat.東京スカパラダイスオーケストラ', artist: 'MAN WITH A MISSION'},
-        {title: 'A BANANA', artist: '感覚ピエロ'}
-      ],
+      lists: Musicinfo
     }
   },
   methods: {
