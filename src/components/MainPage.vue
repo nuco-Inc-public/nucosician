@@ -6,14 +6,16 @@
 
       <div class="card horizontal" v-for="(item, index) in lists" :key="index">
         <div class="card-image">
-          <img src="https://lorempixel.com/100/190/nature/6">
+          <!-- <img src="https://lorempixel.com/100/190/nature/6"> -->
+          <i class="medium material-icons">library_music</i>
+          <i class="medium material-icons">supervisor_account</i>
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
+            <a href="#">{{ item.title }}</a>
           </div>
           <div class="card-action">
-            <a href="#">{{ item.fruit }}</a>
+            <p>{{ item.artist }}</p>
           </div>
         </div>
       </div>
@@ -28,9 +30,9 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       lists: [
-        {fruit: 'りんご'},
-        {fruit: 'バナナ'},
-        {fruit: '西瓜'}
+        {title: 'DATABASE', artist: 'まんうぃず'},
+        {title: 'Freak it! feat.東京スカパラダイスオーケストラ', artist: 'MAN WITH A MISSION'},
+        {title: 'A BANANA', artist: '感覚ピエロ'}
       ],
     }
   },
@@ -59,9 +61,12 @@ a {
 .collection {
   margin:0 15%
 }
-
 .music-list {
   width: 80%;
   margin: 0 auto;
+}
+.material-icons {
+  display: block;
+  color: #ee6e73;
 }
 </style>
