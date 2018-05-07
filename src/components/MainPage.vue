@@ -6,13 +6,12 @@
 
       <div class="card horizontal" v-for="(item, index) in lists" :key="index">
         <div class="card-image">
-          <!-- <img src="https://lorempixel.com/100/190/nature/6"> -->
           <i class="medium material-icons">library_music</i>
           <i class="medium material-icons">supervisor_account</i>
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <a href="#">{{ item.title }}</a>
+          <a v-bind:href="'score?id=' + item.id">{{ item.title }}</a>
           </div>
           <div class="card-action">
             <p>{{ item.artist }}</p>
@@ -25,6 +24,7 @@
 
 <script>
 import Musicinfo from '../assets/json/music_list.json'
+
 export default {
   name: 'MainPage',
   data () {
@@ -34,6 +34,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
