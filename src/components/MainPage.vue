@@ -32,9 +32,6 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       lists: Musicinfo
     }
-  },
-  methods: {
-    value: function () { this.showText = !this.showText }
   }
 }
 </script>
