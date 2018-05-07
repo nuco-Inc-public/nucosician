@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Musicinfo from '../assets/music_list.json'
+import Musicinfo from '../assets/json/music_list.json'
 export default {
   name: 'MainPage',
   data () {
