@@ -69,6 +69,6 @@ a {
 .material-icons {
   display: block;
   color: #ee6e73;
-  padding: 10px 10px;
+  padding: 20% 0 20% 12%;
 }
 </style>
