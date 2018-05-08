@@ -57,16 +57,18 @@ a {
   margin:0 15%
 }
 .music-list {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
+}
+@media screen and (max-width:480px) { 
+  .music-list {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 .material-icons {
   display: block;
   color: #ee6e73;
-  height: 50%;
-}
-.card-image {
-  margin-top: 2%;
-  margin-left: 2%;
+  padding: 10px 10px;
 }
 </style>
