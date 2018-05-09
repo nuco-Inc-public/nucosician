@@ -1,7 +1,7 @@
 <template>
   <div class="analyzer">
     <h3>音響認識テスト画面</h3>
-    <canvas id="canvas" height="500"></canvas>
+    <canvas id="canvas"></canvas>
     <button class="waves-effect waves-light btn" v-on:click="start">start</button>
     <button class="waves-effect waves-light btn" v-on:click="stop">stop</button>
   </div>
@@ -36,7 +36,8 @@ h1, h2 {
   font-weight: normal;
 }
 #canvas {
-  width: 90%;
+  width: 500;
+  height: 500;
 }
 canvas {
   display: block;
