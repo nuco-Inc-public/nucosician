@@ -12,11 +12,17 @@ class Analyser {
     this.processor = null
     this.canvas = null
     this.canvasContext = null
+    this.isRunning = false
   }
 
   start () {
+    console.log(this.isRunning)
+    if (this.isRunning) return
     navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-      .then(stream => this.handleSuccess(stream))
+      .then(stream => {
+        this.isRunning = true
+        this.handleSuccess(stream)
+      })
       .catch(err => console.log(err))
   }
 
@@ -27,6 +33,7 @@ class Analyser {
     if (this.audioAnalyser) {
       this.audioAnalyser.disconnect()
     }
+    this.isRunning = false
   }
 
   setCanvas (canvas) {
