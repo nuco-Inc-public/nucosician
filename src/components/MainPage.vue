@@ -24,8 +24,15 @@
 
 <script>
 import Musicinfo from '../assets/json/music_list.json'
-
+import axios from 'axios'
 export default {
+  created: function () {
+    axios.get('http://192.168.33.10:3000/music_list')
+      .then(response => {
+        console.log(response.data) // mockData
+        console.log(response.status) // 200
+      })
+  },
   name: 'MainPage',
   data () {
     return {
@@ -60,7 +67,7 @@ a {
   width: 60%;
   margin: 0 auto;
 }
-@media screen and (max-width:480px) { 
+@media screen and (max-width:480px) {
   .music-list {
     width: 80%;
     margin: 0 auto;
