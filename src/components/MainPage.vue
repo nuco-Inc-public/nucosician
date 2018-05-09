@@ -1,23 +1,24 @@
 <template>
   <div>
 
-    <div class="col s12 m7 music-list">
+    <div class="col s12 m7">
       <h1 class="header">楽曲一覧</h1>
-
-      <div class="card horizontal" v-for="(item, index) in search_list" :key="index">
-        <div class="card-image">
-          <i class="medium material-icons">library_music</i>
-          <i class="medium material-icons">supervisor_account</i>
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-          <a v-bind:href="'score?id=' + item.id">{{ item.title }}</a>
+      <article class="music-list">
+        <div class="card horizontal" v-for="(item, index) in search_list" :key="index">
+          <div class="card-image">
+            <i class="medium material-icons">library_music</i>
+            <i class="medium material-icons">supervisor_account</i>
           </div>
-          <div class="card-action">
-            <p>{{ item.artist }}</p>
+          <div class="card-stacked">
+            <div class="card-content">
+            <a v-bind:href="'score?id=' + item.id">{{ item.title }}</a>
+            </div>
+            <div class="card-action">
+              <p>{{ item.artist }}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </template>
@@ -61,18 +62,31 @@ a {
   margin:0 15%
 }
 .music-list {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
 }
-@media screen and (max-width:480px) {
+@media screen and (max-width:780px) {
   .music-list {
-    width: 80%;
     margin: 0 auto;
+    overflow: hidden;
   }
 }
 .material-icons {
   display: block;
   color: #ee6e73;
   padding: 20% 0 20% 12%;
+}
+
+@media screen and (min-width:960px) {
+  .card {
+    display: -webkit-inline-box;
+    float: left;
+    height: 200px;
+    width: 30%;
+    margin: 1%;
+  }
+  /* .card:nth-of-type(3n) {
+    margin-right: 0;
+  } */
 }
 </style>
