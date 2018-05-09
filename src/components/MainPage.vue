@@ -4,7 +4,7 @@
     <div class="col s12 m7 music-list">
       <h1 class="header">楽曲一覧</h1>
 
-      <div class="card horizontal" v-for="(item, index) in lists" :key="index">
+      <div class="card horizontal" v-for="(item, index) in search_list" :key="index">
         <div class="card-image">
           <i class="medium material-icons">library_music</i>
           <i class="medium material-icons">supervisor_account</i>
@@ -23,23 +23,25 @@
 </template>
 
 <script>
-import Musicinfo from '../assets/json/music_list.json'
 import axios from 'axios'
 export default {
-  created: function () {
-    axios.get('http://192.168.33.10:3000/music_list')
-      .then(response => {
-        console.log(response.data) // mockData
-        console.log(response.status) // 200
-      })
-  },
-  name: 'MainPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      lists: Musicinfo
+      search_list: []
+    }
+  },
+  name: 'MainPage',
+  async created () {
+    try {
+      let res = await axios.get(process.env.API_ENDPOINT + '/music_list')
+      this.search_list = res.data
+    } catch (e) {
+      console.error(e)
     }
   }
+  // methods: {
+  //   getMusicList: getMusicList
+  // }
 }
 
 </script>
