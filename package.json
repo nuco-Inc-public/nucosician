@@ -15,8 +15,12 @@
   },
   "dependencies": {
     "materialize-css": "^0.100.2",
+    "npm": "^6.0.0",
+    "opensheetmusicdisplay": "^0.3.0",
+    "vexflow": "^1.2.84",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "xml-parser": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
