@@ -1,39 +1,47 @@
 <template>
   <div>
-    <div>
-    <router-link to="/score">
-      スコアー
-    </router-link>
-    </div>
-    <div class="collection">
-      <a class="collection-item">楽曲一覧</a>
-      <div v-for="(item, index) in lists" :key="index">
-        <a href="#!" v-on:click="value" class="collection-item">{{ item.fruit }}</a>
+
+    <div class="col s12 m7 music-list">
+      <h1 class="header">楽曲一覧</h1>
+
+      <div class="card horizontal" v-for="(item, index) in lists" :key="index">
+        <div class="card-image">
+          <i class="medium material-icons">library_music</i>
+          <i class="medium material-icons">supervisor_account</i>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+          <a v-bind:href="'score?id=' + item.id">{{ item.title }}</a>
+          </div>
+          <div class="card-action">
+            <p>{{ item.artist }}</p>
+          </div>
+        </div>
       </div>
     </div>
-    <h2 v-show="showText">{{ text }}</h2>
   </div>
 </template>
 
 <script>
+import Musicinfo from '../assets/json/music_list.json'
+import axios from 'axios'
 export default {
+  created: function () {
+    axios.get('http://192.168.33.10:3000/music_list')
+      .then(response => {
+        console.log(response.data) // mockData
+        console.log(response.status) // 200
+      })
+  },
   name: 'MainPage',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      lists: [
-        {fruit: 'りんご'},
-        {fruit: 'バナナ'},
-        {fruit: '西瓜'}
-      ],
-      text: 'Fruit',
-      showText: false
+      lists: Musicinfo
     }
-  },
-  methods: {
-    value: function () { this.showText = !this.showText }
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -53,7 +61,21 @@ a {
   color: #42b983;
 }
 .collection {
-  margin-left: 300px;
-  margin-right: 300px;
+  margin:0 15%
+}
+.music-list {
+  width: 60%;
+  margin: 0 auto;
+}
+@media screen and (max-width:480px) {
+  .music-list {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.material-icons {
+  display: block;
+  color: #ee6e73;
+  padding: 20% 0 20% 12%;
 }
 </style>
