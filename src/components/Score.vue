@@ -1,17 +1,19 @@
 <template>
-  <div class="score">
-    <h1>{{ msg }}</h1>
+  <div>
+    <div id="container"></div>
   </div>
 </template>
-
+<script src="osmd.js"></script>
 <script>
+import { OpenSheetMusicDisplay } from 'opensheetmusicdisplay'
+
+window.onload = () => {
+  let osmd = new OpenSheetMusicDisplay(document.getElementById('container'))
+  osmd.load('http://localhost:8888/kaerunouta.xml').then(_ => osmd.render())
+}
+
 export default {
   name: 'Score',
-  data () {
-    return {
-      msg: 'score'
-    }
-  }
 }
 </script>
 
