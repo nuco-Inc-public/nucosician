@@ -19,7 +19,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2018 Copyright Text
+      © 2018 Copyright Nuco Inc.
       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>

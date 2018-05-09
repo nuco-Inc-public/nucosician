@@ -9,10 +9,9 @@
 
 <script>
 import { Analyser } from '../models/music/analyzer'
-let analyser = null
+let analyser = new Analyser()
 
 const start = () => {
-  analyser = new Analyser()
   analyser.setCanvas(document.getElementById('canvas'))
   analyser.start()
 }
