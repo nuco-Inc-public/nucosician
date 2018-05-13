@@ -64,11 +64,11 @@ a {
 .music-list {
   width: 80%;
   margin: 0 auto;
+  overflow: hidden;
 }
 @media screen and (max-width:780px) {
   .music-list {
     margin: 0 auto;
-    overflow: hidden;
   }
 }
 .material-icons {
@@ -85,8 +85,8 @@ a {
     width: 30%;
     margin: 1%;
   }
-  /* .card:nth-of-type(3n) {
-    margin-right: 0;
-  } */
+  .card:nth-of-type(3n+1) {
+    margin-left: 3%;
+  }
 }
 </style>
